@@ -5,6 +5,7 @@ import Icon from 'react-native-vector-icons/Ionicons';
 import DashboardScreen from './src/screens/DashboardScreen';
 import TaskDetailScreen from './src/screens/TaskDetailScreen';
 import ProfileScreen from './src/screens/ProfileScreen';
+import StatScreen from './src/screens/StatScreen';
 
 const Tab = createBottomTabNavigator();
 
@@ -18,8 +19,10 @@ export default function App() {
             let iconName = '';
 
             if (route.name === 'Dashboard') iconName = 'home-outline';
-            else if (route.name === 'Tasks') iconName = 'list-outline';
-            else if (route.name === 'Profile') iconName = 'person-outline';
+             else if (route.name === 'Categories') iconName = 'grid-outline';
+             else if (route.name === 'Stats') iconName = 'stats-chart-outline';
+             else if (route.name === 'Profile') iconName = 'person-outline';
+
 
             return <Icon name={iconName} size={size} color={color} />;
           },
@@ -34,7 +37,8 @@ export default function App() {
         })}
       >
         <Tab.Screen name="Dashboard" component={DashboardScreen} />
-        <Tab.Screen name="Tasks" component={TaskDetailScreen} />
+        <Tab.Screen name="Categories" component={TaskDetailScreen} />
+        <Tab.Screen name='Stats' component={StatScreen} />
         <Tab.Screen name="Profile" component={ProfileScreen} />
       </Tab.Navigator>
     </NavigationContainer>
